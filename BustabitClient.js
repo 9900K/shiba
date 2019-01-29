@@ -32,7 +32,7 @@ module.exports = class BustabitClient extends EventEmitter {
     }
 
       //Attempt to mute a user and return whether he actually was. Users are not muted if they are on
-      the USER_WHITELIST in Config.js.
+      //the USER_WHITELIST in Config.js.
       @param {string} uname
       @param {string} [reason]
       @param {string} [channel] chat channel to which the broadcast the mute
