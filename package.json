@@ -29,7 +29,7 @@
   "scripts": {
     "lint": "eslint .",
     "makeparsers": "cd Cmd && for file in *.jison; do jison -p lr \"$file\"; done",
-    "start": "env $(cat ./shibaenv.env | xargs) node --use_strict --harmony Shiba.js",
-    "start-dev": "env $(cat ./shibaenv.env | xargs) nodemon --use_strict --harmony Shiba.js"
+    "start": "env $(cat ./shiba.env | xargs) node --use_strict --harmony Shiba.js",
+    "start-dev": "env $(cat ./shiba.env | xargs) nodemon --use_strict --harmony Shiba.js"
   }
 }
