@@ -461,7 +461,6 @@ const Pg = {
                 usernameOf(user_id) AS uname,
                 channel,
                 message,
-                is_notification,
                 created
             FROM chats ORDER BY id DESC LIMIT $1
         `, [ Config.CHAT_HISTORY ])
