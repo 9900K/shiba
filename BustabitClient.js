@@ -31,7 +31,7 @@ module.exports = class BustabitClient extends EventEmitter {
         this.socket.on("gameEnded", this.handleGameEnded.bind(this))
     }
 
-      Attempt to mute a user and return whether he actually was. Users are not muted if they are on
+      //Attempt to mute a user and return whether he actually was. Users are not muted if they are on
       the USER_WHITELIST in Config.js.
       @param {string} uname
       @param {string} [reason]
