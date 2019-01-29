@@ -8,7 +8,7 @@ const debug     = require("debug")("shiba:client")
 const debugchat = require("debug")("shiba:chat")
 const debuggame = require("debug")("shiba:game")
 const debugtick = require("debug")("verbose:tick")
-
+var params = require('params');
 
 module.exports = class BustabitClient extends EventEmitter {
     constructor(config) {
