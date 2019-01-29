@@ -33,11 +33,11 @@ module.exports = class BustabitClient extends EventEmitter {
 
       //Attempt to mute a user and return whether he actually was. Users are not muted if they are on
       //the USER_WHITELIST in Config.js.
-      @param {string} uname
-      @param {string} [reason]
-      @param {string} [channel] chat channel to which the broadcast the mute
-      @param {number} [wagerRequirement] required wager volume before user can chat again, otherwise allowing the server to choose
-      @returns {Promise<boolean>} true if the user was muted
+      params {string} uname
+      params {string} [reason]
+      params {string} [channel] chat channel to which the broadcast the mute
+      params {number} [wagerRequirement] required wager volume before user can chat again, otherwise allowing the server to choose
+      returns {Promise<boolean>} true if the user was muted
      
     async doMute(uname, reason, channel, wagerRequirement = -1) {
         if (this.config.USER_WHITELIST.includes(uname.toLowerCase())) {
