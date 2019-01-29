@@ -8,7 +8,6 @@ const debug     = require("debug")("shiba:client")
 const debugchat = require("debug")("shiba:chat")
 const debuggame = require("debug")("shiba:game")
 const debugtick = require("debug")("verbose:tick")
-var params = require('params');
 
 module.exports = class BustabitClient extends EventEmitter {
     constructor(config) {
@@ -33,11 +32,11 @@ module.exports = class BustabitClient extends EventEmitter {
 
       //Attempt to mute a user and return whether he actually was. Users are not muted if they are on
       //the USER_WHITELIST in Config.js.
-      params (string) [uname]
-      params (string) [reason]
-      params (string) [channel] chat channel to which the broadcast the mute
-      params (number) [wagerRequirement] required wager volume before user can chat again, otherwise allowing the server to choose
-      returns (Promise<boolean>) true if the user was muted
+      @param {string} uname
+      @param {string} [reason]
+      @param {string} [channel] chat channel to which the broadcast the mute
+      @param {number} [wagerRequirement] required wager volume before user can chat again, otherwise allowing the server to choose
+      @returns {Promise<boolean>} true if the user was muted
      
     async doMute(uname, reason, channel, wagerRequirement = -1) {
         if (this.config.USER_WHITELIST.includes(uname.toLowerCase())) {
@@ -55,11 +54,9 @@ module.exports = class BustabitClient extends EventEmitter {
         return true
     }
 
-    /**
-     * Send a public chat message to the given channel.
-     * @param {string} message
-     * @param {string} channel
-     */
+       //Send a public chat message to the given channel.
+       @param {string} message
+       @param {string} channel
     async doSay(message, channel) {
         debugchat("Saying:", message)
         try {
@@ -69,11 +66,9 @@ module.exports = class BustabitClient extends EventEmitter {
         }
     }
 
-    /**
-     * Fetch a game's information and reshape it into what Pg.putGame expects.
-     * @param {number} id game ID
-     * @returns {Promise}
-     */
+      // Fetch a game's information and reshape it into what Pg.putGame expects.
+       @param {number} id game ID
+       @returns {Promise}
     async getGameInfo(id) {
         const game = await this.socket.send("getGameInfo", id)
         game.created = new Date(game.created).getTime()
